@@ -1,0 +1,188 @@
+/* Section background – Museum / Mona Lisa style */
+.gallery-section {
+    position: relative;
+    padding: 40px;
+    text-align: center;
+    background:
+        radial-gradient(circle at center,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgb(245, 239, 230) 100%);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.gallery-section.modal-active {
+    z-index: 10001;
+    /* Above messages section */
+}
+
+/* Canvas texture overlay */
+.gallery-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/canvas.png");
+    opacity: 0.22;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Mona Lisa Background - Right Most, Moved Lower */
+.gallery-section::after {
+    content: "";
+    position: absolute;
+    top: 70%;
+    /* Moved lower to make face visible */
+    right: -100px;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 800px;
+    background-image: url("../asserts/mona-lisa.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+@media (max-width: 1024px) {
+    .gallery-section::after {
+        opacity: 0.15;
+        right: -200px;
+    }
+}
+
+/* Title */
+.gallery-title {
+    font-size: 34px;
+    font-weight: 600;
+    color: #333;
+    position: relative;
+}
+
+.gallery-title span {
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: #ff7a00;
+    margin: 10px auto 0;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 50px auto;
+    position: relative;
+}
+
+/* Image Cards */
+.gallery-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* View All Button - Smaller width */
+.view-all-btn {
+    background: #111;
+    color: #fff;
+    border: none;
+    /* Reduced width */
+    width: 25%;
+    /* Consistent smaller size */
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.view-all-btn:hover {
+    background: #ff7a00;
+    transform: translateY(-2px);
+}
+
+/* Lightbox Modal */
+.gallery-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: zoom-out;
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: calc(100vh - 40px);
+    border-radius: 8px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    cursor: default;
+}
+
+.close-modal {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-card img {
+        height: 220px;
+    }
+
+    .gallery-section::after {
+        display: none;
+    }
+
+    .close-modal {
+        right: 0;
+        top: -50px;
+    }
+}

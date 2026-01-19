@@ -1,0 +1,169 @@
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    margin-top: 70px;
+    padding: 60px;
+    background: #fff;
+}
+
+.contact-form h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: black;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-group label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #111827;
+}
+
+.input-group input,
+.input-group textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+button {
+    background: #4f46e5;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background: #4338ca;
+}
+
+/* RIGHT SIDE */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.contact-details-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact-details-row .info-item {
+    flex: 1;
+    min-width: 200px;
+    align-items: flex-start;
+}
+
+.info-item {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.info-item span {
+    font-size: 24px;
+}
+
+.info-item h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.info-item p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.map iframe {
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    border: none;
+    margin-top: 10px;
+}
+
+/* ANIMATIONS */
+/* @keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+} */
+
+.info-item:hover i {
+
+    color: #4f46e5;
+}
+
+.info-item:hover h4,
+.info-item:hover p {
+    color: #4f46e5;
+    /* Subtle color shift for text too */
+    transition: color 0.3s ease;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+}
+
+button:disabled {
+    background: #c7c7c7;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.error-text {
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 4px;
+}

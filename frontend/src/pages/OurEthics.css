@@ -1,0 +1,156 @@
+.ethics-section {
+    padding: 40px;
+    background: #fff;
+    text-align: center;
+  }
+  
+  /* ===== DUST TEXT EFFECT ===== */
+  .dust-text,
+  .dust-reveal {
+    position: relative;
+    display: inline-block;
+    color: #111;
+    overflow: hidden;
+  }
+  
+  .dust-text::after,
+  .dust-reveal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 0, 0, 0.6),
+      transparent
+    );
+    animation: dustSweep 1.4s ease forwards;
+  }
+  
+  .dust-reveal.delay::after {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes dustSweep {
+    0% {
+      transform: translateX(-100%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+  
+  /* ===== SUBTITLE ===== */
+  .ethics-sub {
+    max-width: 700px;
+    margin: 15px auto 60px;
+    color: #6b7280;
+  }
+  
+  /* ===== GRID ===== */
+  .ethics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Wrapper for last 2 cards to center them */
+  .ethics-row-wrapper {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  /* ===== CARD ===== */
+  .ethics-card {
+    background: #fff;
+    padding: 35px 30px;
+    border-radius: 14px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.4s ease;
+    overflow: hidden;
+  }
+  
+  .ethics-card:hover {
+    box-shadow: 0 30px 65px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Content wrapper for scaling */
+  .ethics-card-content {
+    transition: transform 0.4s ease;
+  }
+  
+  .ethics-card:hover .ethics-card-content {
+    transform: scale(1.05);
+  }
+  
+  /* ===== ICON ===== */
+  .ethics-icon {
+    font-size: 42px;
+    color: #ff7a45; 
+    transition: transform 0.4s ease;
+  }
+  
+  .ethics-card:hover .ethics-icon {
+    transform: scale(1.1);
+  }
+  
+  /* ===== TEXT ===== */
+  .ethics-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    transition: font-size 0.4s ease;
+  }
+  
+  .ethics-card:hover h3 {
+    font-size: 22px;
+  }
+  
+  .ethics-card p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 15px;
+    transition: font-size 0.4s ease;
+  }
+  
+  .ethics-card:hover p {
+    font-size: 16px;
+  }
+  
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .ethics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .ethics-row-wrapper {
+      grid-column: 1 / -1;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .ethics-card {
+      width: 100% !important;
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .ethics-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .ethics-row-wrapper {
+      flex-direction: column;
+    }
+    
+    .ethics-card {
+      width: 100% !important;
+    }
+  }
+  

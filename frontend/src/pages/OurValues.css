@@ -1,0 +1,175 @@
+.values-section {
+  padding: 40px;
+  text-align: center;
+}
+
+.values-section h2 {
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.diamond {
+  color: #e11d48;
+  margin-right: 8px;
+}
+
+.values-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+/* LEFT SIDE - SIMPLE VERTICAL LIST */
+.values-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  max-width: 600px;
+  width: 100%;
+  gap: 40px;
+  /* Space for the chains */
+  padding-top: 40px;
+}
+
+/* RIGHT SIDE - IMAGE */
+.values-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-top: 60px;
+  overflow: visible;
+}
+
+.values-image-container::before,
+.values-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 5px;
+  height: 70px;
+  background: linear-gradient(to right, #777, #bbb, #777);
+  z-index: 1;
+  border-radius: 3px;
+  transform-origin: top center;
+  animation: swing 6s ease-in-out infinite;
+}
+
+.values-image-container::before {
+  left: 30%;
+}
+
+.values-image-container::after {
+  right: 30%;
+}
+
+.values-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform-origin: top center;
+  animation: swing 6s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+
+
+.value-pill {
+  background: #c8102e;
+  color: #fff;
+  padding: 18px 30px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(200, 16, 46, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 0px;
+  /* Using gap in list instead */
+
+  /* Hanging animation */
+  transform-origin: top center;
+  animation: swing 4s ease-in-out infinite;
+  animation-delay: calc(var(--index, 0) * 0.3s);
+}
+
+.value-pill::before,
+.value-pill::after {
+  content: '';
+  position: absolute;
+  top: -42px;
+  width: 3px;
+  height: 42px;
+  background: linear-gradient(to bottom, #777, #333, #777);
+  z-index: -1;
+  border-radius: 2px;
+}
+
+.value-pill::before {
+  left: 20%;
+}
+
+.value-pill::after {
+  right: 20%;
+}
+
+.value-pill:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 12px 30px rgba(200, 16, 46, 0.4);
+  background: #d90429;
+}
+
+/* Floating animation */
+@keyframes swing {
+
+  0%,
+  100% {
+    transform: rotate(1.5deg);
+  }
+
+  50% {
+    transform: rotate(-1.5deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .values-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .values-list {
+    align-items: center;
+    width: 100%;
+  }
+
+  .value-pill {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .values-image-container {
+    width: 100%;
+  }
+
+  .values-image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .value-pill {
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+}

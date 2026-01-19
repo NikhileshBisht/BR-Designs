@@ -1,0 +1,129 @@
+.footprint-section {
+  position: relative;
+  padding: 80px 8%;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+/* ===== MAP BACKGROUND ===== */
+.footprint-map-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.3;
+  pointer-events: none;
+  transform: translateX(350px);
+  animation: shake 3s ease-in-out infinite;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(360px) translateY(0);
+  }
+
+  25% {
+    transform: translateX(362px) translateY(-2px);
+  }
+
+  50% {
+    transform: translateX(360px) translateY(0);
+  }
+
+  75% {
+    transform: translateX(358px) translateY(2px);
+  }
+}
+
+.footprint-map-background svg {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ===== CONTENT OVERLAY ===== */
+.footprint-container {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.footprint-content {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== CONTENT STYLING ===== */
+.footprint-title {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 600;
+  color: #5a5a5a;
+  margin-bottom: 25px;
+}
+
+.footprint-diamond {
+  color: #e11d48;
+  margin-right: 8px;
+}
+
+.footprint-desc {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.footprint-subtitle {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #333;
+}
+
+.footprint-list {
+  list-style: disc;
+  padding-left: 20px;
+  color: #444;
+}
+
+.footprint-list li {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .footprint-section {
+    padding: 60px 5%;
+  }
+
+  .footprint-container {
+    max-width: 100%;
+  }
+
+  .footprint-content {
+    padding: 30px;
+  }
+
+  .footprint-title {
+    justify-content: center;
+  }
+
+  .footprint-list {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .footprint-map-background {
+    opacity: 0.2;
+  }
+}
